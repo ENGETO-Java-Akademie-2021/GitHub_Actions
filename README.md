@@ -14,8 +14,8 @@ V předchozích lekcích jsme se seznámili s nástrojem Maven (případně Grad
 
  - [Motivace](#motivace)
  - [Terminologie CI/CD](#terminologie-cicd)
- - [Seznámení s GitHub Actions](#seznameni-s-github-actions) 
- - [Ukázkový skript](#ukazkovy-skript)
+ - [Seznámení s GitHub Actions](#seznámení-s-github-actions) 
+ - [Ukázkový skript](#ukázkový-skript)
  -  
  ## Motivace
  
@@ -24,3 +24,29 @@ V předchozích lekcích jsme se seznámili s nástrojem Maven (případně Grad
  ## Seznámení s GitHub Actions
  
  ## Ukázkový skript
+
+```
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Build with Maven
+        run: ./mvnw clean install
+      - name: Archive production artifacts
+        if: always()
+        uses: actions/upload-artifact@v2        
+        with:
+          name: dist-without-markdown
+          path: |
+            target/surefire-report
+```
