@@ -25,6 +25,8 @@ V předchozích lekcích jsme se seznámili s nástrojem Maven (případně Grad
  
  ## Ukázkový skript
 
+Vytvořte soubor: `.github\workflows\ci.yaml`
+
 ```
 name: Java CI
 
