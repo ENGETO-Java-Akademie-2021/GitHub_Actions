@@ -53,6 +53,8 @@ V předchozích lekcích jsme se seznámili s nástrojem Maven (případně Grad
 
 Vytvořte soubor: `.github\workflows\ci.yaml`
 
+Pozor, je potreba upravit prava na souboru `mvnw`: `git update-index --chmod=+x mvnw`
+
 ```
 name: Java CI
 
